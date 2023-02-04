@@ -13,3 +13,16 @@ html {
 *::after {
   box-sizing: inherit;
 }
+
+body {
+  margin: 0 auto;
+  max-width: 600px;
+  padding: 1rem;
+}
+
+nav {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
