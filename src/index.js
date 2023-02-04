@@ -1,7 +1,8 @@
 (async () => {
   const apiKey = '505a95affb4abe534b67ce3708d862f1';
+  const locationSearch = document.querySelector('#location-search');
 
-  const fetchCoords = async (query = 'Fort Wayne') => {
+  const fetchCoords = async (query) => {
     try {
       const requestURL = `http://api.openweathermap.org/geo/1.0/direct?q=${query}&appid=${apiKey}`;
       const response = await fetch(requestURL);
@@ -23,4 +24,17 @@
       throw new Error(error);
     }
   };
+
+  document
+    .querySelector('.search-controls')
+    .addEventListener('submit', async (event) => {
+      event.preventDefault();
+
+      const query = locationSearch.value || 'Fort Wayne';
+
+      const locationCoords = await fetchCoords(query);
+      const weatherData = await fetchWeatherData(locationCoords);
+
+      console.log(weatherData);
+    });
 })();
