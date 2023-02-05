@@ -15,14 +15,46 @@ html {
 }
 
 body {
-  margin: 0 auto;
-  max-width: 600px;
-  padding: 1rem;
+  margin: 0;
+}
+
+header {
+  background: hsl(0, 0%, 80%);
 }
 
 nav {
   align-items: center;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-around;
+  gap: 2vmin;
+  justify-content: space-between;
+  margin: 0 auto;
+  max-width: 600px;
+  padding: 2vmin;
+}
+
+nav > h1 {
+  margin: 0;
+}
+
+.search-controls {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1vmin;
+  justify-content: center;
+}
+
+main {
+  margin: 0 auto;
+  max-width: 600px;
+  padding: 2vmin;
+}
+
+.current-temperature {
+  font-size: 4rem;
+}
+
+.current-temperature::after {
+  content: '°';
 }
