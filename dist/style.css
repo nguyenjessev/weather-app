@@ -55,6 +55,7 @@ main {
   font-size: 4rem;
 }
 
-.current-temperature::after {
+.current-temperature::after,
+.feels-like-temperature::after {
   content: '°';
 }

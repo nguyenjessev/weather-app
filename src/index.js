@@ -2,6 +2,7 @@ import weatherFetcher from './weather_fetcher';
 
 (async () => {
   const locationSearch = document.querySelector('#location-search');
+
   const loadWeatherData = async () => {
     const query = locationSearch.value || 'Fort Wayne';
     const locationCoords = await weatherFetcher.fetchCoords(query);
@@ -9,6 +10,7 @@ import weatherFetcher from './weather_fetcher';
 
     return weatherData;
   };
+
   const updateWeatherDisplay = (weatherData) => {
     try {
       const currentLocation = weatherData.name;
@@ -18,6 +20,8 @@ import weatherFetcher from './weather_fetcher';
       document.querySelector('.current-location').textContent = currentLocation;
       document.querySelector('.current-temperature').textContent =
         Math.round(currentTemp);
+      document.querySelector('.feels-like-temperature').textContent =
+        Math.round(currentFeelsLikeTemp);
 
       return true;
     } catch (error) {
@@ -33,7 +37,7 @@ import weatherFetcher from './weather_fetcher';
     .querySelector('.search-controls')
     .addEventListener('submit', async (event) => {
       event.preventDefault();
-      currentWeather = loadWeatherData();
+      currentWeather = await loadWeatherData();
       updateWeatherDisplay(currentWeather);
     });
 })();
