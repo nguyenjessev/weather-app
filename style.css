@@ -1,0 +1,70 @@
+:root {
+  --system-ui: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif,
+    'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+  --color-body: hsl(0, 0%, 20%);
+  --color-font-dark: hsl(0, 0%, 10%);
+  --color-font-light: hsl(0, 0%, 85%);
+  --color-header: hsl(227, 7%, 58%);
+  --color-shadow: hsl(0, 0%, 10%);
+}
+
+html {
+  box-sizing: border-box;
+  font-family: var(--system-ui);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+body {
+  background: var(--color-body);
+  color: var(--color-font-light);
+  margin: 0;
+}
+
+header {
+  background: var(--color-header);
+  color: var(--color-font-dark);
+  box-shadow: 0 -100px 40px 100px var(--color-shadow);
+}
+
+nav {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2vmin;
+  justify-content: space-between;
+  margin: 0 auto;
+  max-width: 800px;
+  padding: 2vmin;
+}
+
+nav > h1 {
+  margin: 0;
+}
+
+.search-controls {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1vmin;
+  justify-content: center;
+}
+
+main {
+  margin: 0 auto;
+  max-width: 800px;
+  padding: 2vmin;
+}
+
+.current-temperature {
+  font-size: 4rem;
+}
+
+.current-temperature::after,
+.feels-like-temperature::after {
+  content: '°';
+}
