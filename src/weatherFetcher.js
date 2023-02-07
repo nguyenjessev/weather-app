@@ -25,10 +25,11 @@ const fetchLocationData = async (query) => {
 
 const fetchWeatherData = async (locationData) => {
   try {
-    const requestURL = `https://api.openweathermap.org/data/2.5/weather?lat=${locationData.latitude}&lon=${locationData.longitude}&units=imperial&appid=${apiKey}`;
+    const requestURL = `https://api.openweathermap.org/data/2.5/weather?lat=${locationData.latitude}&lon=${locationData.longitude}&appid=${apiKey}`;
     const response = await fetch(requestURL);
+    const data = await response.json();
 
-    return await response.json();
+    return data;
   } catch (error) {
     throw new Error(error);
   }
