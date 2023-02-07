@@ -2,7 +2,7 @@ const apiKey = '505a95affb4abe534b67ce3708d862f1';
 
 const fetchLocationData = async (query) => {
   try {
-    const requestURL = `http://api.openweathermap.org/geo/1.0/direct?q=${query}&appid=${apiKey}`;
+    const requestURL = `https://api.openweathermap.org/geo/1.0/direct?q=${query}&appid=${apiKey}`;
     const response = await fetch(requestURL);
     const data = (await response.json())[0];
     const latitude = data.lat;

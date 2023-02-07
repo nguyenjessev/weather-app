@@ -5,6 +5,8 @@
   "main": "index.js",
   "scripts": {
     "build": "webpack",
+    "deploy": "gh-pages -d dist",
+    "predeploy": "npm run build",
     "start": "webpack serve --open",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -15,9 +17,13 @@
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-config-prettier": "^8.6.0",
     "eslint-plugin-import": "^2.27.5",
+    "gh-pages": "^5.0.0",
     "prettier": "2.8.3",
     "webpack": "^5.75.0",
     "webpack-cli": "^5.0.1",
     "webpack-dev-server": "^4.11.1"
+  },
+  "repository": {
+    "url": "git+https://github.com/nguyenjessev/weather-app.git"
   }
 }
