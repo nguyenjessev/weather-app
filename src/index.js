@@ -1,4 +1,4 @@
-import weatherFetcher from './weather_fetcher';
+import weatherFetcher from './weatherFetcher';
 
 (async () => {
   const locationSearch = document.querySelector('#location-search');
@@ -6,8 +6,10 @@ import weatherFetcher from './weather_fetcher';
   const loadWeatherData = async () => {
     try {
       const query = locationSearch.value || 'Fort Wayne';
-      const locationCoords = await weatherFetcher.fetchCoords(query);
-      const weatherData = await weatherFetcher.fetchWeatherData(locationCoords);
+      const locationData = await weatherFetcher.fetchLocationData(query);
+      const weatherData = await weatherFetcher.fetchWeatherData(locationData);
+
+      weatherData.name = locationData.name;
 
       return weatherData;
     } catch (error) {

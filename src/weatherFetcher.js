@@ -1,6 +1,6 @@
 const apiKey = '505a95affb4abe534b67ce3708d862f1';
 
-const fetchCoords = async (query) => {
+const fetchLocationData = async (query) => {
   try {
     const requestURL = `http://api.openweathermap.org/geo/1.0/direct?q=${query}&appid=${apiKey}`;
     const response = await fetch(requestURL);
@@ -23,9 +23,9 @@ const fetchCoords = async (query) => {
   }
 };
 
-const fetchWeatherData = async (targetCoords) => {
+const fetchWeatherData = async (locationData) => {
   try {
-    const requestURL = `https://api.openweathermap.org/data/2.5/weather?lat=${targetCoords.latitude}&lon=${targetCoords.longitude}&units=imperial&appid=${apiKey}`;
+    const requestURL = `https://api.openweathermap.org/data/2.5/weather?lat=${locationData.latitude}&lon=${locationData.longitude}&units=imperial&appid=${apiKey}`;
     const response = await fetch(requestURL);
 
     return await response.json();
@@ -35,6 +35,6 @@ const fetchWeatherData = async (targetCoords) => {
 };
 
 export default {
-  fetchCoords,
+  fetchLocationData,
   fetchWeatherData,
 };
