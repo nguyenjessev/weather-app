@@ -4,9 +4,20 @@ const fetchCoords = async (query) => {
   try {
     const requestURL = `http://api.openweathermap.org/geo/1.0/direct?q=${query}&appid=${apiKey}`;
     const response = await fetch(requestURL);
-    const data = await response.json();
+    const data = (await response.json())[0];
+    const latitude = data.lat;
+    const longitude = data.lon;
+    let { name } = data;
 
-    return { latitude: data[0].lat, longitude: data[0].lon };
+    if (data.state) {
+      name += `, ${data.state}`;
+    }
+
+    return {
+      latitude,
+      longitude,
+      name,
+    };
   } catch (error) {
     throw new Error(error);
   }

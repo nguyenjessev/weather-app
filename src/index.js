@@ -4,11 +4,15 @@ import weatherFetcher from './weather_fetcher';
   const locationSearch = document.querySelector('#location-search');
 
   const loadWeatherData = async () => {
-    const query = locationSearch.value || 'Fort Wayne';
-    const locationCoords = await weatherFetcher.fetchCoords(query);
-    const weatherData = await weatherFetcher.fetchWeatherData(locationCoords);
+    try {
+      const query = locationSearch.value || 'Fort Wayne';
+      const locationCoords = await weatherFetcher.fetchCoords(query);
+      const weatherData = await weatherFetcher.fetchWeatherData(locationCoords);
 
-    return weatherData;
+      return weatherData;
+    } catch (error) {
+      throw new Error(error);
+    }
   };
 
   const updateWeatherDisplay = (weatherData) => {
