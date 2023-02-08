@@ -81,8 +81,8 @@ main {
 
 .temperature-controls {
   border-radius: 100px;
-  display: flex;
-  justify-content: space-between;
+  display: inline-flex;
+  justify-content: flex-start;
   margin-top: 1rem;
   overflow: hidden;
 }
@@ -91,9 +91,8 @@ main {
   background: var(--color-button);
   border: 0;
   color: var(--color-font-light);
-  /* font-weight: bold; */
+  font-weight: bold;
   padding: 0.4rem 1rem;
-  width: 50%;
 }
 
 .temperature-button:hover {
