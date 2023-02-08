@@ -63,11 +63,13 @@ main {
 }
 
 .current-weather {
+  align-items: center;
   display: flex;
+  flex-direction: column;
 }
 
 .current-temperature {
-  font-size: 4rem;
+  font-size: 10rem;
 }
 
 .current-temperature::after,
@@ -80,11 +82,9 @@ main {
 }
 
 .temperature-controls {
-  border-radius: 100px;
   display: inline-flex;
   justify-content: flex-start;
   margin-top: 1rem;
-  overflow: hidden;
 }
 
 .temperature-button {
@@ -102,4 +102,5 @@ main {
 
 .temperature-button.selected {
   background: var(--color-button-hover);
+  box-shadow: inset 0 0 0 1px var(--color-font-light);
 }
