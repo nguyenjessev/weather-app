@@ -2,6 +2,8 @@ import weatherFetcher from './weatherFetcher';
 
 (async () => {
   const locationSearch = document.querySelector('#location-search');
+  const temperatureControls = document.querySelector('.temperature-controls');
+  const temperatureButtons = document.querySelectorAll('.temperature-button');
 
   const loadWeatherData = async () => {
     try {
@@ -46,4 +48,15 @@ import weatherFetcher from './weatherFetcher';
       currentWeather = await loadWeatherData();
       updateWeatherDisplay(currentWeather);
     });
+
+  temperatureButtons.forEach((temperatureButton) => {
+    temperatureButton.addEventListener('click', () => {
+      temperatureButtons.forEach((button) => {
+        button.classList.remove('selected');
+      });
+      temperatureButton.classList.add('selected');
+      temperatureControls.dataset.temperatureUnit =
+        temperatureButton.textContent;
+    });
+  });
 })();
