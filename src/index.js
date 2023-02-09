@@ -35,11 +35,14 @@ import weatherFetcher from './weatherFetcher';
   const updateWeatherDisplay = (weatherData) => {
     try {
       const currentLocation = weatherData.name;
+      const currentWeatherDescription = weatherData.weather[0].description;
       const currentTemp = weatherData.main.temp;
       const currentFeelsLikeTemp = weatherData.main.feels_like;
       const currentHumidity = weatherData.main.humidity;
 
       document.querySelector('.current-location').textContent = currentLocation;
+      document.querySelector('.current-weather-description').textContent =
+        currentWeatherDescription;
       document.querySelector('.current-temperature').textContent = Math.round(
         formatTemperature(currentTemp)
       );
