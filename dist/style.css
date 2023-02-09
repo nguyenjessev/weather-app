@@ -68,23 +68,9 @@ main {
   flex-direction: column;
 }
 
-.current-temperature {
-  font-size: 10rem;
-}
-
-.current-temperature::after,
-.feels-like-temperature::after {
-  content: '°';
-}
-
-.feels-like {
-  font-style: italic;
-}
-
 .temperature-controls {
   display: inline-flex;
   justify-content: flex-start;
-  margin-top: 1rem;
 }
 
 .temperature-button {
@@ -103,4 +89,17 @@ main {
 .temperature-button.selected {
   background: var(--color-button-hover);
   box-shadow: inset 0 0 0 1px var(--color-font-light);
+}
+
+.current-temperature {
+  font-size: 10rem;
+}
+
+.current-temperature::after,
+.feels-like-temperature::after {
+  content: '°';
+}
+
+.feels-like {
+  font-style: italic;
 }
