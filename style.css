@@ -63,28 +63,24 @@ main {
 }
 
 .current-weather {
+  align-items: center;
   display: flex;
+  flex-direction: column;
 }
 
-.current-temperature {
-  font-size: 4rem;
+.current-location {
+  margin-bottom: 0;
 }
 
-.current-temperature::after,
-.feels-like-temperature::after {
-  content: '°';
-}
-
-.feels-like {
+.current-weather-description {
   font-style: italic;
+  text-transform: capitalize;
 }
 
 .temperature-controls {
-  border-radius: 100px;
   display: inline-flex;
   justify-content: flex-start;
   margin-top: 1rem;
-  overflow: hidden;
 }
 
 .temperature-button {
@@ -102,4 +98,18 @@ main {
 
 .temperature-button.selected {
   background: var(--color-button-hover);
+  box-shadow: inset 0 0 0 1px var(--color-font-light);
+}
+
+.current-temperature {
+  font-size: 10rem;
+}
+
+.current-temperature::after,
+.feels-like-temperature::after {
+  content: '°';
+}
+
+.feels-like {
+  font-style: italic;
 }
