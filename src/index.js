@@ -7,7 +7,7 @@ import weatherFetcher from './weatherFetcher';
 
   const loadWeatherData = async () => {
     try {
-      const query = locationSearch.value || 'Fort Wayne';
+      const query = locationSearch.value || 'Chicago';
       const locationData = await weatherFetcher.fetchLocationData(query);
       const weatherData = await weatherFetcher.fetchWeatherData(locationData);
 
@@ -37,6 +37,7 @@ import weatherFetcher from './weatherFetcher';
       const currentLocation = weatherData.name;
       const currentTemp = weatherData.main.temp;
       const currentFeelsLikeTemp = weatherData.main.feels_like;
+      const currentHumidity = weatherData.main.humidity;
 
       document.querySelector('.current-location').textContent = currentLocation;
       document.querySelector('.current-temperature').textContent = Math.round(
@@ -44,6 +45,7 @@ import weatherFetcher from './weatherFetcher';
       );
       document.querySelector('.feels-like-temperature').textContent =
         Math.round(formatTemperature(currentFeelsLikeTemp));
+      document.querySelector('.humidity').textContent = `${currentHumidity}%`;
 
       return true;
     } catch (error) {
